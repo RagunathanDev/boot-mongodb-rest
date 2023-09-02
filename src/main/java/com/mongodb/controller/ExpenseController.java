@@ -3,7 +3,6 @@ package com.mongodb.controller;
 import com.mongodb.model.Expense;
 import com.mongodb.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,7 +48,6 @@ public class ExpenseController {
     @GetMapping("/delete/{id}")
     public ResponseEntity deleteExpense(@PathVariable String id) {
         expenseService.deleteExpense(id);
-        final var build = status(NO_CONTENT).build();
-        return build;
+        return status(NO_CONTENT).build();
     }
 }
